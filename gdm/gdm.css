@@ -130,54 +130,6 @@
 }
 .popup-menu-item { border-radius: 8px; }
 .popup-menu-item:active { background-color: #34204e; color: #7c3aed; }
-.quick-settings { padding: 16px; }
-.quick-settings-grid { spacing-rows: 10px; spacing-columns: 10px; }
-.quick-toggle, .quick-menu-toggle {
-  border-radius: 12px; min-height: 54px;
-  background-color: #1b122b; color: #e6dff5;
-  border: 1px solid #503275; box-shadow: none;
-}
-.quick-toggle:hover, .quick-menu-toggle:hover { background-color: #302047; border-color: #8758e8; }
-.quick-toggle:checked, .quick-toggle:checked:hover, .quick-toggle:checked:active {
-  background-gradient-direction: none;
-  background-color: #7c3aed; color: #f1edff; border-color: #7c3aed;
-}
-.quick-toggle:checked:hover { background-color: #8b5cf6; }
-.quick-toggle .quick-toggle-icon { icon-size: 16px; }
-.quick-menu-toggle .quick-toggle {
-  background-color: transparent; border: none; box-shadow: none;
-}
-.quick-menu-toggle .quick-toggle:checked { background-color: #7c3aed; color: #f1edff; }
-.quick-menu-toggle .quick-toggle:ltr { border-radius: 11px 0 0 11px; }
-.quick-menu-toggle .quick-toggle:rtl { border-radius: 0 11px 11px 0; }
-.quick-menu-toggle .quick-toggle:ltr:last-child,
-.quick-menu-toggle .quick-toggle:rtl:last-child { border-radius: 11px; }
-.quick-menu-toggle .quick-toggle-arrow {
-  background-color: transparent; color: #e6dff5; border: none; box-shadow: none;
-}
-.quick-menu-toggle .quick-toggle-arrow:ltr { border-radius: 0 11px 11px 0; border-left-width: 0; }
-.quick-menu-toggle .quick-toggle-arrow:rtl { border-radius: 11px 0 0 11px; border-right-width: 0; }
-.quick-menu-toggle .quick-toggle-arrow:checked { background-color: #7c3aed; color: #f1edff; }
-.quick-menu-toggle .quick-toggle-arrow:hover { background-color: #3b245d; }
-.quick-menu-toggle .quick-toggle-arrow:checked:hover { background-color: #8b5cf6; }
-.quick-slider {
-  border: 1px solid #503275; border-radius: 12px;
-  padding: 10px 8px; background-color: #1b122b;
-}
-.quick-slider .slider {
-  -barlevel-height: 6px; -barlevel-background-color: #3b245d;
-  -barlevel-active-background-color: #8758e8;
-  -slider-handle-radius: 5px; -slider-handle-border-width: 0;
-  color: #e6dff5;
-}
-.quick-settings-system-item .icon-button,
-.quick-settings-system-item .power-item {
-  border-radius: 10px; border: 1px solid #8758e8;
-  background-color: #1b122b; color: #e6dff5; box-shadow: none;
-}
-.quick-settings-system-item .icon-button:hover,
-.quick-settings-system-item .power-item:hover { background-color: #3b245d; color: #7c3aed; }
-.quick-toggle:focus, .quick-menu-toggle:focus { box-shadow: inset 0 0 0 2px #8758e8; }
 .popup-menu .popup-menu-content {
   background-color: rgba(16, 11, 28, 0.97);
   border: 2px solid #8758e8; border-radius: 16px; color: #e6dff5;
@@ -201,12 +153,6 @@
 }
 
 
-.quick-toggle:checked, .quick-toggle:checked:hover, .quick-toggle:checked:active,
-.quick-menu-toggle .quick-toggle:checked, .quick-menu-toggle .quick-toggle-arrow:checked {
-  color: #ffffff;
-}
-.quick-settings-system-item .icon-button:hover,
-.quick-settings-system-item .power-item:hover { color: #f1edff; }
 /* END Zorin Violet GDM menus */
 
 /* BEGIN Zorin Violet system dialogs */
@@ -269,91 +215,7 @@
 }
 /* END Zorin Violet system dialogs */
 
-/* BEGIN Zorin Violet quick submenus */
-.quick-toggle-menu {
-  background-color: #100b1c;
-  color: #e6dff5;
-  border: 2px solid #8758e8;
-  border-radius: 16px;
-  box-shadow: none;
-}
-
-.quick-toggle-menu .header .title { color: #f1edff; }
-.quick-toggle-menu .header .subtitle { color: #c7badb; }
-.quick-toggle-menu .header .icon {
-  background-color: #34204e;
-  color: #e6dff5;
-}
-.quick-toggle-menu .header .icon.active {
-  background-color: #6d28d9;
-  color: #ffffff;
-}
-
-.quick-toggle-menu .popup-menu-item {
-  color: #e6dff5;
-  border-radius: 8px;
-}
-.quick-toggle-menu .popup-menu-item:hover,
-.quick-toggle-menu .popup-menu-item:focus,
-.quick-toggle-menu .popup-menu-item:selected {
-  background-color: #34204e;
-  color: #f1edff;
-  box-shadow: none;
-}
-.quick-toggle-menu .popup-menu-item:active {
-  background-color: #4c2382;
-  color: #ffffff;
-  box-shadow: none;
-}
-.quick-toggle-menu .popup-menu-item:insensitive {
-  color: #9e90b4;
-}
-.quick-toggle-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
-  background-color: #503275;
-}
-/* END Zorin Violet quick submenus */
-
 /* BEGIN Zorin Violet power controls */
-.quick-settings .quick-settings-system-item .icon-button,
-.quick-settings .quick-settings-system-item .power-item {
-  background-color: #1b122b;
-  color: #e6dff5;
-  border: 1px solid #8758e8;
-  border-radius: 10px;
-  box-shadow: none;
-}
-
-.quick-settings .quick-settings-system-item .icon-button:hover,
-.quick-settings .quick-settings-system-item .icon-button:focus,
-.quick-settings .quick-settings-system-item .icon-button:checked,
-.quick-settings .quick-settings-system-item .power-item:hover,
-.quick-settings .quick-settings-system-item .power-item:focus {
-  background-color: #34204e;
-  border-color: #a78bfa;
-  color: #f1edff;
-}
-
-.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item) {
-  background-color: #1b122b;
-  color: #e6dff5;
-  border: 1px solid #503275;
-  margin: 2px 0;
-  border-radius: 8px;
-}
-
-.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item):hover,
-.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item):focus {
-  background-color: #34204e;
-  border-color: #a78bfa;
-  color: #f1edff;
-}
-
-.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item):active {
-  background-color: #4c2382;
-  border-color: #a78bfa;
-  color: #ffffff;
-}
-
 .end-session-dialog .modal-dialog-linked-button {
   background-color: #1b122b;
   color: #e6dff5;
@@ -420,4 +282,16 @@
 }
 #panel.login-screen .panel-button.clock-display:focus {
   border-color: #c4b5fd !important;
+}
+
+/* Quick Settings active buttons use the panel border color. */
+.quick-settings .quick-toggle:checked,
+.quick-settings .quick-toggle:checked:hover,
+.quick-settings .quick-toggle:checked:active,
+.quick-settings .quick-menu-toggle .quick-toggle-arrow:checked,
+.quick-settings .quick-menu-toggle .quick-toggle-arrow:checked:hover,
+.quick-settings .quick-menu-toggle .quick-toggle-arrow:checked:active {
+  background-gradient-direction: none;
+  background-color: #8758e8;
+  color: #ffffff;
 }

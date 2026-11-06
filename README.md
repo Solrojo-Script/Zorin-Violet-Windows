@@ -49,7 +49,7 @@ On Zorin OS with GNOME Shell 46, the separate GDM installer adds the violet cloc
 Install Python 3 and the `libglib2.0-dev-bin` package for `gresource` and `glib-compile-resources`.
 
 After installing the extension, open **Extensions → Violet Windows → Preferences**.
-Under **GDM login screen**, select **Apply** or **Restore previous**. The buttons use
+Under **GDM login screen**, select **Apply** (or **Reapply** after an update) or **Restore previous**. The buttons use
 `pkexec` to ask for administrator authorization. The theme takes effect the next time
 GDM opens the login screen.
 

@@ -26,7 +26,8 @@ export default class VioletWindowsPreferences extends ExtensionPreferences {
                 // This system does not expose a GDM theme alternative.
             }
             const active = selected === VIOLET_THEME;
-            apply.sensitive = Boolean(selected) && !active;
+            apply.sensitive = Boolean(selected);
+            apply.label = active ? 'Reapply' : 'Apply';
             restore.sensitive = active;
             row.subtitle = message || (active ? 'Violet Windows theme selected' :
                 selected ? 'Uses the current system theme' : 'GDM theme selection is unavailable on this system');
