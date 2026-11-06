@@ -1,0 +1,423 @@
+/* ZorinViolet GDM: retain the current login background and vendor assets. */
+.login-dialog, .unlock-dialog { color: #e6dff5; }
+.login-dialog .login-dialog-prompt-entry,
+.unlock-dialog .login-dialog-prompt-entry {
+ background-color: #171022; color: #f1edff; caret-color: #c4b5fd;
+ border: 1px solid #8758e8; border-radius: 12px;
+}
+.login-dialog .login-dialog-prompt-entry:focus,
+.unlock-dialog .login-dialog-prompt-entry:focus {
+ background-color: #1b122b; color: #ffffff; caret-color: #c4b5fd;
+ border-color: #a78bfa; box-shadow: inset 0 0 0 1px #8758e8 !important;
+}
+.login-dialog .login-dialog-prompt-entry:hover,
+.unlock-dialog .login-dialog-prompt-entry:hover { border-color: #a78bfa; }
+.login-dialog .login-dialog-prompt-entry StLabel.hint-text,
+.unlock-dialog .login-dialog-prompt-entry StLabel.hint-text { color: #b8accd; }
+.login-dialog .login-dialog-button.default,
+.unlock-dialog .login-dialog-button.default {
+ background-color: #6d28d9; background-gradient-direction: none;
+ color: #ffffff; border-color: #a78bfa;
+}
+.login-dialog .login-dialog-button.default:hover,
+.unlock-dialog .login-dialog-button.default:hover { background-color: #7c3aed; color: #ffffff; }
+.login-dialog .login-dialog-button.default:focus,
+.unlock-dialog .login-dialog-button.default:focus { box-shadow: inset 0 0 0 2px #c4b5fd; }
+.login-dialog .login-dialog-user-list-item:hover,
+.login-dialog .login-dialog-user-list-item:focus {
+ background-color: #291a40; color: #f1edff;
+ box-shadow: inset 0 0 0 1px #8758e8;
+}
+.login-dialog .login-dialog-message-warning,
+.unlock-dialog .login-dialog-message-warning {
+ background-color: #1b122b; border-color: #8758e8; color: #f1edff;
+}
+
+.login-dialog-user-list .login-dialog-user-list-item {
+ background-color: rgba(16, 11, 28, 0.94);
+ border: 1px solid #8758e8; border-radius: 14px; color: #e6dff5;
+}
+.login-dialog-user-list .login-dialog-user-list-item:hover,
+.login-dialog-user-list .login-dialog-user-list-item:focus {
+ background-color: #34204e; border-color: #c4b5fd; color: #ffffff;
+}
+.login-dialog .login-dialog-prompt-entry {
+ padding: 12px 16px; background-color: #171022;
+ border: 2px solid #8758e8; color: #f1edff;
+}
+.login-dialog .login-dialog-prompt-entry:focus {
+ border-color: #c4b5fd; box-shadow: none !important;
+}
+.login-dialog .login-dialog-button.default {
+ background-color: #6d28d9; color: #ffffff;
+ border: 1px solid #a78bfa; border-radius: 10px;
+}
+
+
+
+/* Zorin Violet: migrated greeter styles */
+.login-dialog .login-dialog-prompt-layout .user-widget .user-icon {
+  border: 2px solid #a78bfa !important;
+  box-shadow: inset 0 0 0 2px #a78bfa !important;
+}
+
+/* BEGIN Zorin Violet GDM panel */
+#panel.login-screen {
+  height: 44px;
+  font-size: 0.9em;
+  background-color: transparent;
+  background-gradient-direction: none;
+  border: none;
+  box-shadow: none;
+}
+
+#panel.login-screen .panel-button {
+  margin: 7px 4px;
+  padding: 0 10px;
+  border: 2px solid #8758e8 !important;
+  border-radius: 11px;
+  background-color: #0e0918 !important;
+  color: #e6dff5;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#panel.login-screen .panel-button:hover,
+#panel.login-screen .panel-button:active,
+#panel.login-screen .panel-button:checked {
+  background-color: #291a40 !important;
+  border-color: #a78bfa !important;
+  color: #f1edff;
+  box-shadow: none;
+}
+
+#panel.login-screen .panel-button:focus {
+  border-color: #c4b5fd !important;
+  color: #f1edff;
+  box-shadow: none;
+}
+
+#panel.login-screen .panel-button .clock {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit;
+}
+
+#panel.login-screen .panel-button StIcon {
+  color: inherit;
+  icon-size: 16px;
+  -st-icon-style: symbolic;
+  icon-shadow: none;
+}
+
+#panel.login-screen .panel-button .clock-display-box {
+  spacing: 3px;
+}
+
+#panel.login-screen .panel-status-indicators-box,
+#panel.login-screen .panel-status-menu-box {
+  spacing: 2px;
+}
+/* END Zorin Violet GDM panel */
+
+/* BEGIN Zorin Violet GDM menus */
+.popup-menu-content, .quick-settings {
+  background-color: rgba(16, 11, 28, 0.97);
+  color: #e6dff5; border: 2px solid #8758e8;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(10, 8, 18, 0.36);
+}
+.popup-menu-item { border-radius: 8px; }
+.popup-menu-item:active { background-color: #34204e; color: #7c3aed; }
+.quick-settings { padding: 16px; }
+.quick-settings-grid { spacing-rows: 10px; spacing-columns: 10px; }
+.quick-toggle, .quick-menu-toggle {
+  border-radius: 12px; min-height: 54px;
+  background-color: #1b122b; color: #e6dff5;
+  border: 1px solid #503275; box-shadow: none;
+}
+.quick-toggle:hover, .quick-menu-toggle:hover { background-color: #302047; border-color: #8758e8; }
+.quick-toggle:checked, .quick-toggle:checked:hover, .quick-toggle:checked:active {
+  background-gradient-direction: none;
+  background-color: #7c3aed; color: #f1edff; border-color: #7c3aed;
+}
+.quick-toggle:checked:hover { background-color: #8b5cf6; }
+.quick-toggle .quick-toggle-icon { icon-size: 16px; }
+.quick-menu-toggle .quick-toggle {
+  background-color: transparent; border: none; box-shadow: none;
+}
+.quick-menu-toggle .quick-toggle:checked { background-color: #7c3aed; color: #f1edff; }
+.quick-menu-toggle .quick-toggle:ltr { border-radius: 11px 0 0 11px; }
+.quick-menu-toggle .quick-toggle:rtl { border-radius: 0 11px 11px 0; }
+.quick-menu-toggle .quick-toggle:ltr:last-child,
+.quick-menu-toggle .quick-toggle:rtl:last-child { border-radius: 11px; }
+.quick-menu-toggle .quick-toggle-arrow {
+  background-color: transparent; color: #e6dff5; border: none; box-shadow: none;
+}
+.quick-menu-toggle .quick-toggle-arrow:ltr { border-radius: 0 11px 11px 0; border-left-width: 0; }
+.quick-menu-toggle .quick-toggle-arrow:rtl { border-radius: 11px 0 0 11px; border-right-width: 0; }
+.quick-menu-toggle .quick-toggle-arrow:checked { background-color: #7c3aed; color: #f1edff; }
+.quick-menu-toggle .quick-toggle-arrow:hover { background-color: #3b245d; }
+.quick-menu-toggle .quick-toggle-arrow:checked:hover { background-color: #8b5cf6; }
+.quick-slider {
+  border: 1px solid #503275; border-radius: 12px;
+  padding: 10px 8px; background-color: #1b122b;
+}
+.quick-slider .slider {
+  -barlevel-height: 6px; -barlevel-background-color: #3b245d;
+  -barlevel-active-background-color: #8758e8;
+  -slider-handle-radius: 5px; -slider-handle-border-width: 0;
+  color: #e6dff5;
+}
+.quick-settings-system-item .icon-button,
+.quick-settings-system-item .power-item {
+  border-radius: 10px; border: 1px solid #8758e8;
+  background-color: #1b122b; color: #e6dff5; box-shadow: none;
+}
+.quick-settings-system-item .icon-button:hover,
+.quick-settings-system-item .power-item:hover { background-color: #3b245d; color: #7c3aed; }
+.quick-toggle:focus, .quick-menu-toggle:focus { box-shadow: inset 0 0 0 2px #8758e8; }
+.popup-menu .popup-menu-content {
+  background-color: rgba(16, 11, 28, 0.97);
+  border: 2px solid #8758e8; border-radius: 16px; color: #e6dff5;
+}
+.popup-menu .popup-menu-item:focus,
+.popup-menu .popup-menu-item:hover,
+.popup-menu .popup-sub-menu .popup-menu-item:focus,
+.popup-menu .popup-sub-menu .popup-menu-item:hover {
+  background-color: #34204e; color: #f1edff; box-shadow: none;
+}
+.popup-menu .popup-menu-item:active,
+.popup-menu .popup-sub-menu .popup-menu-item:active {
+  background-color: #4c2382; color: #ffffff;
+}
+.popup-menu .popup-menu-item:checked {
+  background-color: #34204e; color: #f1edff;
+}
+.popup-menu .popup-menu-item:checked:hover { background-color: #4c2382; }
+.popup-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
+  background-color: #503275;
+}
+
+
+.quick-toggle:checked, .quick-toggle:checked:hover, .quick-toggle:checked:active,
+.quick-menu-toggle .quick-toggle:checked, .quick-menu-toggle .quick-toggle-arrow:checked {
+  color: #ffffff;
+}
+.quick-settings-system-item .icon-button:hover,
+.quick-settings-system-item .power-item:hover { color: #f1edff; }
+/* END Zorin Violet GDM menus */
+
+/* BEGIN Zorin Violet system dialogs */
+.modal-dialog {
+  background-color: #100b1c;
+  color: #e6dff5;
+  border: 2px solid #8758e8;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(10, 8, 18, 0.42);
+}
+
+.modal-dialog .message-dialog-title {
+  color: #f1edff;
+}
+
+.modal-dialog .message-dialog-description {
+  color: #c7badb;
+}
+
+.modal-dialog .modal-dialog-linked-button {
+  background-color: #1b122b;
+  color: #e6dff5;
+  border-color: #503275;
+  box-shadow: none;
+}
+
+.modal-dialog .modal-dialog-linked-button:hover,
+.modal-dialog .modal-dialog-linked-button:focus {
+  background-color: #34204e;
+  color: #f1edff;
+  box-shadow: inset 0 0 0 1px #8758e8;
+}
+
+.modal-dialog .modal-dialog-linked-button:active {
+  background-color: #4c2382;
+  color: #ffffff;
+}
+
+.modal-dialog .modal-dialog-linked-button:default,
+.end-session-dialog .modal-dialog-linked-button:last-child {
+  background-color: #6d28d9;
+  color: #ffffff;
+}
+
+.modal-dialog .modal-dialog-linked-button:default:hover,
+.end-session-dialog .modal-dialog-linked-button:last-child:hover {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.end-session-dialog .modal-dialog-linked-button:last-child:focus {
+  box-shadow: inset 0 0 0 2px #c4b5fd !important;
+}
+
+.modal-dialog .modal-dialog-linked-button:insensitive,
+.end-session-dialog .modal-dialog-linked-button:last-child:insensitive {
+  background-color: #171022;
+  color: #9e90b4;
+  box-shadow: none;
+}
+/* END Zorin Violet system dialogs */
+
+/* BEGIN Zorin Violet quick submenus */
+.quick-toggle-menu {
+  background-color: #100b1c;
+  color: #e6dff5;
+  border: 2px solid #8758e8;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.quick-toggle-menu .header .title { color: #f1edff; }
+.quick-toggle-menu .header .subtitle { color: #c7badb; }
+.quick-toggle-menu .header .icon {
+  background-color: #34204e;
+  color: #e6dff5;
+}
+.quick-toggle-menu .header .icon.active {
+  background-color: #6d28d9;
+  color: #ffffff;
+}
+
+.quick-toggle-menu .popup-menu-item {
+  color: #e6dff5;
+  border-radius: 8px;
+}
+.quick-toggle-menu .popup-menu-item:hover,
+.quick-toggle-menu .popup-menu-item:focus,
+.quick-toggle-menu .popup-menu-item:selected {
+  background-color: #34204e;
+  color: #f1edff;
+  box-shadow: none;
+}
+.quick-toggle-menu .popup-menu-item:active {
+  background-color: #4c2382;
+  color: #ffffff;
+  box-shadow: none;
+}
+.quick-toggle-menu .popup-menu-item:insensitive {
+  color: #9e90b4;
+}
+.quick-toggle-menu .popup-separator-menu-item .popup-separator-menu-item-separator {
+  background-color: #503275;
+}
+/* END Zorin Violet quick submenus */
+
+/* BEGIN Zorin Violet power controls */
+.quick-settings .quick-settings-system-item .icon-button,
+.quick-settings .quick-settings-system-item .power-item {
+  background-color: #1b122b;
+  color: #e6dff5;
+  border: 1px solid #8758e8;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.quick-settings .quick-settings-system-item .icon-button:hover,
+.quick-settings .quick-settings-system-item .icon-button:focus,
+.quick-settings .quick-settings-system-item .icon-button:checked,
+.quick-settings .quick-settings-system-item .power-item:hover,
+.quick-settings .quick-settings-system-item .power-item:focus {
+  background-color: #34204e;
+  border-color: #a78bfa;
+  color: #f1edff;
+}
+
+.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item) {
+  background-color: #1b122b;
+  color: #e6dff5;
+  border: 1px solid #503275;
+  margin: 2px 0;
+  border-radius: 8px;
+}
+
+.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item):hover,
+.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item):focus {
+  background-color: #34204e;
+  border-color: #a78bfa;
+  color: #f1edff;
+}
+
+.quick-toggle-menu .popup-menu-item:not(.popup-separator-menu-item):active {
+  background-color: #4c2382;
+  border-color: #a78bfa;
+  color: #ffffff;
+}
+
+.end-session-dialog .modal-dialog-linked-button {
+  background-color: #1b122b;
+  color: #e6dff5;
+}
+
+.end-session-dialog .modal-dialog-linked-button:last-child {
+  background-color: #6d28d9;
+  color: #ffffff;
+}
+
+.end-session-dialog .modal-dialog-linked-button:last-child:hover,
+.end-session-dialog .modal-dialog-linked-button:last-child:focus {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.end-session-dialog .modal-dialog-linked-button:last-child:insensitive {
+  background-color: #171022;
+  color: #9e90b4;
+}
+/* END Zorin Violet power controls */
+
+/* BEGIN Zorin Violet soft dialog actions */
+.modal-dialog .modal-dialog-linked-button {
+  border-color: #2d2040;
+  box-shadow: none;
+}
+
+.modal-dialog .modal-dialog-linked-button:focus,
+.modal-dialog.end-session-dialog .modal-dialog-linked-button:last-child:focus {
+  box-shadow: inset 0 0 0 1px #8758e8 !important;
+}
+
+.modal-dialog.end-session-dialog .modal-dialog-linked-button:last-child {
+  background-color: #34204e;
+  color: #f1edff;
+}
+
+.modal-dialog.end-session-dialog .modal-dialog-linked-button:last-child:hover,
+.modal-dialog.end-session-dialog .modal-dialog-linked-button:last-child:focus {
+  background-color: #4c2382;
+  color: #ffffff;
+}
+
+.modal-dialog.end-session-dialog .modal-dialog-linked-button:last-child:insensitive {
+  background-color: #171022;
+  color: #9e90b4;
+}
+/* END Zorin Violet soft dialog actions */
+
+/* Zorin Violet GDM clock capsule */
+#panel.login-screen .panel-button.clock-display {
+  border: 2px solid #8758e8 !important;
+  border-radius: 11px;
+  background: #0e0918 !important;
+  background-color: #0e0918 !important;
+}
+#panel.login-screen .panel-button.clock-display:hover,
+#panel.login-screen .panel-button.clock-display:active,
+#panel.login-screen .panel-button.clock-display:checked {
+  background: #291a40 !important;
+  background-color: #291a40 !important;
+  border-color: #a78bfa !important;
+}
+#panel.login-screen .panel-button.clock-display:focus {
+  border-color: #c4b5fd !important;
+}
