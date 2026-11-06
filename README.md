@@ -46,15 +46,20 @@ rm -r -- "${XDG_DATA_HOME:-$HOME/.local/share}/gnome-shell/extensions/violet-win
 
 On Zorin OS with GNOME Shell 46, the separate GDM installer adds the violet clock, top bar, menus, dialogs, and avatar styling to the active greeter theme. It preserves that theme's background and other assets. The desktop extension installer handles the **Super+L** lock screen.
 
-Install Python 3 and the `libglib2.0-dev-bin` package for `gresource` and `glib-compile-resources`. From the repository directory, run:
+Install Python 3 and the `libglib2.0-dev-bin` package for `gresource` and `glib-compile-resources`.
+
+After installing the extension, open **Extensions → Violet Windows → Preferences**.
+Under **GDM login screen**, select **Apply** or **Restore previous**. The buttons use
+`pkexec` to ask for administrator authorization. The theme takes effect the next time
+GDM opens the login screen.
+
+The same actions are available from the repository directory:
 
 ```sh
 python3 install-gdm.py --check
 sudo python3 install-gdm.py
+sudo python3 install-gdm.py --restore
 ```
 
-Save the previous theme path printed by the installer. Log out when ready to see the theme in GDM. To switch back, replace `PREVIOUS_THEME_PATH` with the path you saved on the first install:
-
-```sh
-sudo update-alternatives --set gdm-theme.gresource "PREVIOUS_THEME_PATH"
-```
+Restore the previous GDM theme before uninstalling the extension if you also want
+to revert the login screen.
