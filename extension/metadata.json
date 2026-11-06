@@ -1,0 +1,9 @@
+{
+  "uuid": "violet-windows@solrojo",
+  "name": "Violet Windows",
+  "description": "Window placement, resizing, and focus borders, plus Wofi and panel indicator behavior.",
+  "shell-version": [
+    "46"
+  ],
+  "version": 1
+}
