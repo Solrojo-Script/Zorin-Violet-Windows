@@ -5,7 +5,7 @@ A GNOME Shell extension for window placement, keyboard focus, and the top bar.
 - Opens new application windows on the monitor under the pointer and gives ordinary resizable windows a centered initial size. Tiling layouts can still set their own geometry.
 - Draws a violet border around the focused window, including standalone dialogs.
 - Resizes the active window with **Super + Alt** and a left-button drag.
-- Moves the pointer to the newly focused window when using Zorin Tiling Shell's directional or sequential focus shortcuts.
+- Moves the pointer to the newly focused window when confirming Alt+Tab or using Zorin Tiling Shell's directional or sequential focus shortcuts.
 - Dismisses Wofi when you click outside it and places application indicators to the left of System Monitor when that indicator is present.
 
 ## Requirements
