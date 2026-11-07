@@ -295,3 +295,23 @@
   background-color: #8758e8;
   color: #ffffff;
 }
+
+/* Dark user cards and labels for light GDM wallpapers. */
+.login-dialog .login-dialog-user-list-item,
+.login-dialog .login-dialog-user-list-item:hover,
+.login-dialog .login-dialog-user-list-item:focus,
+.login-dialog .login-dialog-user-list-item:selected {
+  background-color: #1b122b !important;
+  background-gradient-direction: none;
+  color: #f1edff;
+}
+.login-dialog .login-dialog-prompt-layout .user-widget .user-widget-label {
+  background-color: #1b122b;
+  color: #f1edff;
+  border-radius: 8px;
+  padding: 4px 12px;
+  text-shadow: none;
+}
+.login-dialog .login-dialog-prompt-entry {
+  background-color: #1b122b;
+}
