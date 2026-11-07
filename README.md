@@ -2,7 +2,7 @@
 
 A GNOME Shell extension for window placement, keyboard focus, and the top bar.
 
-- Opens new application windows on the monitor under the pointer and gives ordinary resizable windows a centered initial size. Tiling layouts can still set their own geometry.
+- Opens new application windows on the monitor under the pointer. Initial window sizes are determined by GNOME and each application.
 - Draws a violet border around the focused window, including standalone dialogs.
 - Styles the GNOME lock screen, including its clock, avatar, password field, and panel.
 - Resizes the active window with **Super + Alt** and a left-button drag.
@@ -63,3 +63,18 @@ sudo python3 install-gdm.py --restore
 
 Restore the previous GDM theme before uninstalling the extension if you also want
 to revert the login screen.
+
+## Follow the desktop wallpaper in GDM
+
+For the existing Zorin Violet per-monitor GDM background installation, enable
+automatic synchronization from your regular desktop account:
+
+```sh
+sudo python3 wallpaper/install.py
+```
+
+This optional installer creates a user-owned image directory under
+`/var/lib/violet-windows/wallpapers/`, connects GDM's existing image path to that
+copy, and installs a login launcher. The synchronizer follows GNOME's current
+light or dark wallpaper and changes to the image file itself. GDM uses the latest
+copy the next time its login screen opens. Local image files are supported.
