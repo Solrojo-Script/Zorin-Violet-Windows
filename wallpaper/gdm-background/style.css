@@ -1,0 +1,11 @@
+#lockDialogGroup.violet-gdm-per-monitor {
+  background-color: #0e0918 !important;
+  background-image: none !important;
+}
+.violet-gdm-monitor {
+  background-color: #0e0918;
+  background-image: url("file:///usr/local/share/backgrounds/ZorinViolet/login.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

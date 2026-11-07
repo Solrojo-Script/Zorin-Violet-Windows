@@ -14,5 +14,8 @@ install -d "$destination/gdm"
 install -m 644 "$source_dir"/*.js "$source_dir/stylesheet.css" \
     "$source_dir/metadata.json" "$source_dir/../install-gdm.py" "$destination/"
 install -m 644 "$source_dir/../gdm/gdm.css" "$destination/gdm/"
+install -d "$destination/wallpaper/gdm-background"
+install -m 644 "$source_dir/../wallpaper/"*.py "$destination/wallpaper/"
+install -m 644 "$source_dir/../wallpaper/gdm-background/"* "$destination/wallpaper/gdm-background/"
 printf 'Installed in %s\n' "$destination"
 printf '%s\n' 'Log out and back in, then enable Violet Windows in the Extensions app.'

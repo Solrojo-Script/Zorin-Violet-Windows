@@ -17,6 +17,11 @@ export default class VioletWindowsPreferences extends ExtensionPreferences {
         const row = new Adw.ActionRow({title: 'Violet login theme'});
         const apply = new Gtk.Button({label: 'Apply', valign: Gtk.Align.CENTER});
         const restore = new Gtk.Button({label: 'Restore previous', valign: Gtk.Align.CENTER});
+        const syncRow = new Adw.ActionRow({
+            title: 'Follow desktop wallpaper',
+            subtitle: 'Keep GDM up to date, with a separate wallpaper copy on each monitor.',
+        });
+        const sync = new Gtk.Button({label: 'Enable sync', valign: Gtk.Align.CENTER});
 
         function refresh(message = '') {
             let selected;
@@ -29,12 +34,14 @@ export default class VioletWindowsPreferences extends ExtensionPreferences {
             apply.sensitive = Boolean(selected);
             apply.label = active ? 'Reapply' : 'Apply';
             restore.sensitive = active;
+            sync.sensitive = true;
             row.subtitle = message || (active ? 'Violet Windows theme selected' :
                 selected ? 'Uses the current system theme' : 'GDM theme selection is unavailable on this system');
         }
 
         const run = (args) => {
             apply.sensitive = restore.sensitive = false;
+            sync.sensitive = false;
             row.subtitle = 'Waiting for administrator authorization…';
             try {
                 const installer = this.dir.get_child('install-gdm.py').get_path();
@@ -58,9 +65,12 @@ export default class VioletWindowsPreferences extends ExtensionPreferences {
 
         apply.connect('clicked', () => run([]));
         restore.connect('clicked', () => run(['--restore']));
+        sync.connect('clicked', () => run(['--sync-wallpaper']));
         row.add_suffix(apply);
         row.add_suffix(restore);
         group.add(row);
+        syncRow.add_suffix(sync);
+        group.add(syncRow);
         page.add(group);
         window.add(page);
         refresh();

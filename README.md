@@ -47,7 +47,17 @@ rm -r -- "${XDG_DATA_HOME:-$HOME/.local/share}/gnome-shell/extensions/violet-win
 
 On Zorin OS with GNOME Shell 46, the separate GDM installer adds the violet clock, top bar, menus, dialogs, and avatar styling to the active greeter theme. It preserves that theme's background and other assets. The desktop extension installer handles the **Super+L** lock screen.
 
-Install Python 3 and the `libglib2.0-dev-bin` package for `gresource` and `glib-compile-resources`.
+Install the required packages before applying the GDM theme:
+
+```sh
+sudo apt update
+sudo apt install python3 libglib2.0-bin libglib2.0-dev-bin
+```
+
+The installer checks for missing commands before changing the theme. If a
+dependency is missing, it prints the package installation command. The compiler
+is needed for both `--check` and installation, including when applying the theme
+from the preferences window.
 
 After installing the extension, open **Extensions → Violet Windows → Preferences**.
 Under **GDM login screen**, select **Apply** (or **Reapply** after an update) or **Restore previous**. The buttons use
@@ -67,15 +77,29 @@ to revert the login screen.
 
 ## Follow the desktop wallpaper in GDM
 
-For the existing Zorin Violet per-monitor GDM background installation, enable
-automatic synchronization from your regular desktop account:
+In Violet Windows preferences, select **Enable sync** under **Follow desktop
+wallpaper** and authorize the installation. On a fresh Zorin installation,
+this installs the GDM background component and the desktop wallpaper watcher.
+The same setup is available from a terminal in the repository directory:
 
-```sh
-sudo python3 wallpaper/install.py
-```
+    sudo python3 install-gdm.py --sync-wallpaper
 
-This optional installer creates a user-owned image directory under
-`/var/lib/violet-windows/wallpapers/`, connects GDM's existing image path to that
-copy, and installs a login launcher. The synchronizer follows GNOME's current
-light or dark wallpaper and changes to the image file itself. GDM uses the latest
-copy the next time its login screen opens. Local image files are supported.
+The normal extension installer copies all synchronization files into the
+installed extension directory. The synchronization setup requires administrator
+access once. Each later wallpaper change is copied by the desktop user without
+another administrator prompt.
+
+The synchronizer follows the active light or dark wallpaper and monitors the
+image file for replacements by Firefox or other applications. Local image files
+are supported. GDM uses the latest PNG copy the next time its login screen opens,
+with independent backgrounds on each monitor. The most recently configured user
+supplies the shared GDM wallpaper.
+
+## Reproducing the dock appearance
+
+The dock styling supports the native GNOME dash and Dash to Dock. To reproduce
+the desktop dock, install and enable Dash to Dock, import the matching dotfile
+preferences, and disable Zorin Taskbar, Zorin Dash or Ubuntu Dock. The dotfiles
+installer handles this selection automatically. Restart the GNOME session after
+installing extensions. Violet Windows preserves rounded corners, violet borders
+and hover or focus highlights through its stylesheet.

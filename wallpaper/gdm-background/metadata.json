@@ -1,0 +1,12 @@
+{
+  "uuid": "violet-gdm-background@solrojo",
+  "name": "Violet Windows GDM Background",
+  "description": "Shows the synchronized desktop wallpaper independently on each GDM monitor.",
+  "shell-version": [
+    "46"
+  ],
+  "session-modes": [
+    "gdm"
+  ],
+  "version": 1
+}

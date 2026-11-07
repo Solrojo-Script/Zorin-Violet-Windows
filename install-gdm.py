@@ -74,9 +74,28 @@ def main():
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument('--restore', action='store_true', help='restore the previous GDM theme')
     actions.add_argument('--check', action='store_true', help='build and verify without installing')
+    actions.add_argument('--sync-wallpaper', action='store_true', help='enable automatic desktop wallpaper sync')
     args = parser.parse_args()
     if not args.check and os.geteuid() != 0:
         parser.exit(1, 'Run this installer with sudo.\n')
+    if args.sync_wallpaper:
+        helper = Path(__file__).with_name('wallpaper') / 'install.py'
+        subprocess.run(['/usr/bin/python3', '-I', str(helper)], check=True)
+        return
+    tools = {'update-alternatives': 'dpkg'}
+    if not args.restore:
+        tools.update({'gresource': 'libglib2.0-bin',
+                      'glib-compile-resources': 'libglib2.0-dev-bin'})
+    missing = [tool for tool in tools if not shutil.which(tool)]
+    if missing and not args.check and shutil.which('apt-get'):
+        packages = sorted({tools[tool] for tool in missing})
+        subprocess.run(['apt-get', 'install', '-y', *packages], check=True)
+        missing = [tool for tool in tools if not shutil.which(tool)]
+    if missing:
+        packages = sorted({tools[tool] for tool in missing})
+        parser.exit(1, 'Missing required commands: ' + ', '.join(missing) + '\n'
+                    'Install them and run this installer again.\n'
+                    'sudo apt install ' + ' '.join(packages) + '\n')
     if not LINK.is_symlink():
         parser.exit(1, 'This installer requires a Zorin GDM theme managed by update-alternatives.\n')
 
