@@ -5,6 +5,7 @@ A GNOME Shell extension for window placement, keyboard focus, and the top bar.
 - Opens new application windows on the monitor under the pointer. Initial window sizes are determined by GNOME and each application.
 - Draws a violet border around the focused window, including standalone dialogs.
 - Styles the native GNOME dash and Dash to Dock with a dark violet background, violet borders, and hover and keyboard-focus highlights.
+- Uses matching violet hover and keyboard-focus highlights in the overview app grid and application folders.
 - Styles the GNOME lock screen, including its clock, avatar, password field, and panel.
 - Resizes the active window with **Super + Alt** and a left-button drag.
 - Moves the pointer to the newly focused window when confirming Alt+Tab or using Zorin Tiling Shell's directional or sequential focus shortcuts.

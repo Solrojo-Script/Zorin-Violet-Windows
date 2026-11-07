@@ -158,3 +158,29 @@
 .unlock-dialog .login-dialog-prompt-entry:focus {
   border-color: #8758e8 !important;
 }
+
+/* App-grid highlights match the dock. */
+#overviewGroup .apps-scroll-view .icon-grid .overview-tile {
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+#overviewGroup .apps-scroll-view .icon-grid .overview-tile .overview-icon {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+#overviewGroup .apps-scroll-view .icon-grid .overview-tile:hover {
+  background-color: #34204e !important;
+  border-color: #8758e8 !important;
+}
+#overviewGroup .apps-scroll-view .icon-grid .overview-tile:active,
+#overviewGroup .apps-scroll-view .icon-grid .overview-tile:selected {
+  background-color: #4c2382 !important;
+  border-color: #a78bfa !important;
+}
+#overviewGroup .apps-scroll-view .icon-grid .overview-tile:focus {
+  background-color: #34204e !important;
+  border-color: #c4b5fd !important;
+  box-shadow: inset 0 0 0 1px #c4b5fd !important;
+}
