@@ -69,3 +69,58 @@
 #panel.unlock-screen .panel-button:checked, #panel.unlock-screen .panel-button:focus {
   border-color: #c4b5fd; background-color: #291a40; color: #f1edff; box-shadow: none;
 }
+
+/* Violet dock appearance */
+#dash .dash-background {
+  border: 2px solid #8758e8;
+  border-radius: 16px;
+  background-color: rgba(14, 9, 24, 0.94);
+  box-shadow: 0 5px 18px rgba(10, 8, 18, 0.32);
+}
+
+#dash .dash-item-container .overview-tile {
+  border-radius: 10px;
+}
+
+#dash .dash-item-container .overview-tile:hover {
+  background-color: #34204e;
+}
+
+#dashtodockContainer #dash .dash-background {
+  background-color: rgba(14, 9, 24, 0.94) !important;
+  border: 2px solid #8758e8 !important; border-radius: 16px !important;
+  box-shadow: 0 5px 18px rgba(10, 8, 18, 0.32);
+}
+/* Paint the icon surface once: the extension otherwise adds a grey layer. */
+#dashtodockContainer #dash .dash-item-container .overview-tile,
+#dashtodockContainer #dash .dash-item-container .show-apps {
+  background-color: transparent !important; box-shadow: none !important;
+}
+#dashtodockContainer #dash .dash-item-container .overview-icon {
+  background-color: transparent; border: 1px solid transparent; border-radius: 10px;
+}
+#dashtodockContainer #dash .dash-item-container .overview-tile:hover .overview-icon,
+#dashtodockContainer #dash .dash-item-container .show-apps:hover .overview-icon {
+  background-color: #34204e !important; border-color: #8758e8;
+}
+#dashtodockContainer #dash .dash-item-container .overview-tile.focused .overview-icon,
+#dashtodockContainer #dash .dash-item-container .overview-tile:active .overview-icon,
+#dashtodockContainer #dash .dash-item-container .show-apps:checked .overview-icon {
+  background-color: #4c2382 !important; border-color: #a78bfa;
+}
+#dashtodockContainer #dash .dash-item-container .overview-tile:focus .overview-icon,
+#dashtodockContainer #dash .dash-item-container .show-apps:focus .overview-icon {
+  border-color: #c4b5fd; box-shadow: inset 0 0 0 1px #c4b5fd;
+}
+#dashtodockContainer #dash .app-grid-running-dot,
+#dashtodockContainer #dash .app-well-app-running-dot { background-color: #a78bfa; }
+#dashtodockContainer #dash .dash-separator { background-color: #503275; }
+#dashtodockContainer .notification-badge {
+  background-color: #6d28d9; color: #ffffff; border: 1px solid #a78bfa;
+}
+#dashtodockContainer .number-overlay { background-color: #100b1c; color: #f1edff; }
+#dashtodockContainer .progress-bar {
+  -progress-bar-track-background: #302047; -progress-bar-track-border: #503275;
+  -progress-bar-background: #a78bfa; -progress-bar-border: #c4b5fd;
+}
+.dash-label { background-color: #100b1c; color: #e6dff5; border: 1px solid #8758e8; border-radius: 9px; }
