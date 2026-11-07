@@ -296,22 +296,31 @@
   color: #ffffff;
 }
 
-/* Dark user cards and labels for light GDM wallpapers. */
+/* Dark background only for the user selection cards. */
 .login-dialog .login-dialog-user-list-item,
 .login-dialog .login-dialog-user-list-item:hover,
 .login-dialog .login-dialog-user-list-item:focus,
 .login-dialog .login-dialog-user-list-item:selected {
   background-color: #1b122b !important;
   background-gradient-direction: none;
+  border: 2px solid #8758e8 !important;
+  box-shadow: none !important;
   color: #f1edff;
 }
 .login-dialog .login-dialog-prompt-layout .user-widget .user-widget-label {
-  background-color: #1b122b;
+  background-color: transparent !important;
   color: #f1edff;
-  border-radius: 8px;
-  padding: 4px 12px;
-  text-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 .login-dialog .login-dialog-prompt-entry {
   background-color: #1b122b;
+}
+
+.login-dialog .login-dialog-prompt-entry,
+.login-dialog .login-dialog-prompt-entry:hover,
+.login-dialog .login-dialog-prompt-entry:focus {
+  border: 2px solid #8758e8 !important;
+  box-shadow: none !important;
 }
