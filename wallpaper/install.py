@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Install the per-monitor GDM background and automatic wallpaper synchronization."""
+import argparse
 import os
 import pwd
 import shutil
@@ -17,9 +18,35 @@ WALLPAPERS = Path('/var/lib/violet-windows/wallpapers')
 BACKUPS = Path('/var/backups')
 
 
-def main():
+def confirm_extension_installation(assume_yes=False, *, ask=input, output=print):
+    """List every added component before permitting any package or system writes.
+
+    The preferences dialog supplies --yes only after its own explicit approval.
+    Terminal invocations require yes on stdin or an explicit --yes argument.
+    """
+    output('GDM wallpaper synchronization — installation plan')
+    output('Install and enable in GDM: Violet GDM Background (violet-gdm-background@solrojo)')
+    output('Install helper: ' + str(HELPER))
+    output('Install login startup entry: ' + str(AUTOSTART))
+    output('Desktop extension activation stays unchanged.')
+    if assume_yes:
+        return True
+    try:
+        answer = ask('Install and enable these components? [y/N]: ')
+    except (EOFError, KeyboardInterrupt):
+        answer = ''
+    return answer.strip().lower() in ('y', 'yes')
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--yes', action='store_true', help='explicitly approve the listed GDM components')
+    args = parser.parse_args(argv)
     if os.geteuid() != 0:
         raise SystemExit('Run this installer with sudo from your regular desktop account.')
+    if not confirm_extension_installation(args.yes):
+        print('Cancelled. No packages, extensions, settings or files were changed.')
+        return
     if os.environ.get('PKEXEC_UID'):
         account = pwd.getpwuid(int(os.environ['PKEXEC_UID']))
     elif os.environ.get('SUDO_USER'):

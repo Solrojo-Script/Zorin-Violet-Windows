@@ -11,6 +11,14 @@ A GNOME Shell extension for window placement, keyboard focus, and the top bar.
 - Moves the pointer to the newly focused window when confirming Alt+Tab or using Zorin Tiling Shell's directional or sequential focus shortcuts.
 - Dismisses Wofi when you click outside it and places application indicators to the left of System Monitor when that indicator is present.
 
+## Screenshots
+
+The installer transcript below shows the default cancellation path. The GDM screenshot is captured from the actual confirmation dialog; its test callback does not run an installer.
+
+![Violet Windows installer listing its extension and cancelling by default](docs/screenshots/install-confirmation.png)
+
+![Separate explicit confirmation for the optional GDM wallpaper component](docs/screenshots/gdm-confirmation.png)
+
 ## Requirements
 
 - GNOME Shell 46, the version declared by the extension.
@@ -25,6 +33,23 @@ A GNOME Shell extension for window placement, keyboard focus, and the top bar.
    ```sh
    ./install.sh
    ```
+
+The installer first lists **Violet Windows** (`violet-windows@solrojo`) and asks:
+
+```text
+Install Violet Windows? [y/N]:
+```
+
+Only `y` or `yes` installs it. No, empty input or EOF cancels before any files are changed. It does not install other desktop extensions and does not enable Violet Windows automatically. The GDM component remains a separate opt-in.
+
+For a non-mutating preview or an explicit unattended installation:
+
+```sh
+./install.sh --dry-run
+./install.sh --yes
+```
+
+`--yes` confirms installation of Violet Windows only; it does not enable GDM synchronization.
 
 3. Log out and back in so GNOME Shell loads the files.
 4. Enable **Violet Windows** in the **Extensions** app, or run:
@@ -79,11 +104,25 @@ to revert the login screen.
 ## Follow the desktop wallpaper in GDM
 
 In Violet Windows preferences, select **Enable sync** under **Follow desktop
-wallpaper** and authorize the installation. On a fresh Zorin installation,
+wallpaper**. A separate dialog lists **Violet GDM Background**
+(`violet-gdm-background@solrojo`), the wallpaper helper and its login startup
+entry. **Cancel** is the default response. Only **Install and enable** starts
+administrator authorization. On a fresh Zorin installation,
 this installs the GDM background component and the desktop wallpaper watcher.
 The same setup is available from a terminal in the repository directory:
 
     sudo python3 install-gdm.py --sync-wallpaper
+
+Terminal setup also lists those components and asks for an explicit `y`/`yes`
+before any package installation or system writes. Empty input or EOF cancels.
+For unattended setup, the deliberately explicit form is:
+
+```sh
+sudo python3 install-gdm.py --sync-wallpaper --yes
+```
+
+The `--yes` flag is accepted only with `--sync-wallpaper`; it does not silently
+apply the GDM theme. The desktop extension list is preserved by synchronization.
 
 The normal extension installer copies all synchronization files into the
 installed extension directory. The synchronization setup requires administrator
@@ -101,6 +140,24 @@ supplies the shared GDM wallpaper.
 The dock styling supports the native GNOME dash and Dash to Dock. To reproduce
 the desktop dock, install and enable Dash to Dock, import the matching dotfile
 preferences, and disable Zorin Taskbar, Zorin Dash or Ubuntu Dock. The dotfiles
-installer handles this selection automatically. Restart the GNOME session after
+installer lists these changes and applies them only after your explicit selection
+and separate dock-replacement approval. Restart the GNOME session after
 installing extensions. Violet Windows preserves rounded corners, violet borders
 and hover or focus highlights through its stylesheet.
+
+## Installer consent tests
+
+The tests verify cancellation before writes, explicit desktop installation into a temporary directory, and GDM consent before dependency commands or user lookup:
+
+```sh
+python3 -B -m unittest discover -s tests -p 'test_*.py' -v
+```
+
+The confirmation dialog can be tested on an isolated X11 display using GJS, Xvfb and a separate session bus:
+
+```sh
+GDK_BACKEND=x11 GTK_A11Y=none GSETTINGS_BACKEND=memory \
+  dbus-run-session -- xvfb-run -a gjs -m tests/test_wallpaper_consent.js "$PWD"
+```
+
+The GUI test cancels and approves a harmless callback; it never runs `pkexec`, installs a component, or changes GDM settings.

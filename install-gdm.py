@@ -75,12 +75,15 @@ def main():
     actions.add_argument('--restore', action='store_true', help='restore the previous GDM theme')
     actions.add_argument('--check', action='store_true', help='build and verify without installing')
     actions.add_argument('--sync-wallpaper', action='store_true', help='enable automatic desktop wallpaper sync')
+    parser.add_argument('--yes', action='store_true', help='confirm installation of the optional GDM wallpaper extension')
     args = parser.parse_args()
+    if args.yes and not args.sync_wallpaper:
+        parser.error('--yes is only valid with --sync-wallpaper')
     if not args.check and os.geteuid() != 0:
         parser.exit(1, 'Run this installer with sudo.\n')
     if args.sync_wallpaper:
         helper = Path(__file__).with_name('wallpaper') / 'install.py'
-        subprocess.run(['/usr/bin/python3', '-I', str(helper)], check=True)
+        subprocess.run(['/usr/bin/python3', '-I', str(helper), *(['--yes'] if args.yes else [])], check=True)
         return
     tools = {'update-alternatives': 'dpkg'}
     if not args.restore:

@@ -4,6 +4,8 @@ import GLib from 'gi://GLib';
 import Gtk from 'gi://Gtk';
 import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
+import {confirmWallpaperInstallation} from './wallpaperConsent.js';
+
 const ALTERNATIVE = '/etc/alternatives/gdm-theme.gresource';
 const VIOLET_THEME = '/usr/local/share/gnome-shell/theme/VioletWindows-GDM/gnome-shell-theme.gresource';
 
@@ -65,7 +67,9 @@ export default class VioletWindowsPreferences extends ExtensionPreferences {
 
         apply.connect('clicked', () => run([]));
         restore.connect('clicked', () => run(['--restore']));
-        sync.connect('clicked', () => run(['--sync-wallpaper']));
+        sync.connect('clicked', () => {
+            confirmWallpaperInstallation(window, () => run(['--sync-wallpaper', '--yes']));
+        });
         row.add_suffix(apply);
         row.add_suffix(restore);
         group.add(row);
